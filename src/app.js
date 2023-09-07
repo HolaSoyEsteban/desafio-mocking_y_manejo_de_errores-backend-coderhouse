@@ -8,6 +8,7 @@ import chatRouter from './routers/chat.router.js'
 import sessionsRouter from './routers/sessions.router.js'
 import viewsUserRouter from './routers/viewsUser.router.js'
 import mailPurchaseRouter from './routers/mailPurchase.router.js'
+import mockingRouter from './routers/mocking.router.js'
 import mongoose from 'mongoose'
 import Message from './models/message.model.js'
 import session from 'express-session'
@@ -75,6 +76,7 @@ try {
     app.use('/', viewsUserRouter); // registra el router de usuario en la ruta /
     app.use('/chat', chatRouter); // ruta para renderizar la vista de chat
     app.use('/products', viewsRouter); // ruta para renderizar la vista de productos
+    app.use('/mockingproducts', mockingRouter); // ruta para generar productos aleatorios con Faker
     app.use('/api/products', productsRouter); // registra el router de productos en la ruta /api/products
     app.use('/api/carts', cartsRouter); // registra el router de carritos en la ruta /api/carts
     app.use('/api/sessions', sessionsRouter); // registra el router de sesiones en la ruta /api/sessions
