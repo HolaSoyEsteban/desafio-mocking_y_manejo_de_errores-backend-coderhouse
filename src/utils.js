@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker'
 
 export const generateProduct = () => {
     return {
+        _id: faker.database.mongodbObjectId(),
         title: faker.commerce.productName(),
         description: faker.lorem.sentence(),
         code: faker.string.nanoid(10),

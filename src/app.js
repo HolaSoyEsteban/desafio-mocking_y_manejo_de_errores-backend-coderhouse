@@ -16,13 +16,17 @@ import MongoStore from 'connect-mongo'
 import passport from 'passport'
 import initializePassport from './config/passport.config.js'
 import config from './config/config.js'
+import errorHandler from './middlewares/error.middleware.js'
 
 const port = config.port
 const mongoURL = config.mongoURL
 const mongoDBName = config.mongoDBName
 
 const app = express(); // crea una instancia de una aplicación de express
+
 app.use(express.json()); // middleware para parsear el body de las requests a JSON
+
+app.use(errorHandler)
 app.use(express.static('./src/public')); // middleware para servir archivos estáticos
 
 // configuracion de la sesion
